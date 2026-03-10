@@ -1,2 +1,21 @@
-bin/
-obj/
+**/bin/
+**/obj/
+
+
+# Rider IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.sln.DotSettings.user
+.rider/
+
+# macOS
+.DS_Store
+
+# Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
