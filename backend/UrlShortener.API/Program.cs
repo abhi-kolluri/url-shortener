@@ -1,4 +1,10 @@
+using System;
+using System.Linq;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using UrlShortener.Application.Interfaces;
 using UrlShortener.Application.Services;
 using UrlShortener.Infrastructure.Persistence;

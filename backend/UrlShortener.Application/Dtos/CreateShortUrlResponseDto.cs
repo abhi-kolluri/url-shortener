@@ -1,3 +1,5 @@
+using System;
+
 namespace UrlShortener.Application.Dtos;
 
 public class CreateShortUrlResponseDto

@@ -1,3 +1,4 @@
+using System;
 using UrlShortener.Application.Interfaces;
 
 namespace UrlShortener.Application.Services;
