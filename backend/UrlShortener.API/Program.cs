@@ -1,7 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using UrlShortener.Application.Interfaces;
+using UrlShortener.Application.Services;
+using UrlShortener.Infrastructure.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddSingleton<IShortCodeGenerator, ShortCodeGenerator>();
+
+builder.Services.AddDbContext<UrlShortenerDbContext>(options => 
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres")));
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -20,7 +31,7 @@ var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
-
+app.MapControllers();
 app.MapGet("/weatherforecast", () =>
 {
     var forecast =  Enumerable.Range(1, 5).Select(index =>
